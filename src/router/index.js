@@ -1,7 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import VueMeta from 'vue-meta'
 
+Vue.use(VueMeta, {
+  // The component option name that vue-meta looks for meta info on.
+  keyName: 'page',
+})
 Vue.use(VueRouter);
 
 const routes = [
