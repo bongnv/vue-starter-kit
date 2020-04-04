@@ -6,3 +6,4 @@
 * vuex
 * eslint & prettier
 * sass
+* vuetify
