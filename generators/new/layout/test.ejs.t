@@ -1,10 +1,11 @@
 ---
-to: "src/layouts/<%= h.changeCase.pascalCase(name) %>.unit.js"
+to: "src/layouts/<%= h.changeCase.pascalCase(name) %>.test.js"
 ---
 <%
-  const fileName = h.changeCase.kebab(name)
-  const importName = h.changeCase.pascal(fileName) + 'Layout'
+  const fileName = h.changeCase.pascalCase(name)
+  const importName = h.changeCase.pascalCase(fileName) + 'Layout'
 %>import <%= importName %> from './<%= fileName %>'
+import { shallowMount } from "@vue/test-utils";
 
 describe('@layouts/<%= fileName %>', () => {
   it('renders its content', () => {

@@ -32,7 +32,7 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-content>
+    <v-content style="height:100vh">
       <slot />
     </v-content>
   </v-app>
