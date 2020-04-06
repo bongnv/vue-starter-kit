@@ -31,10 +31,18 @@ jobs:
       with:
         node-version: ${{ matrix.node }}
 
+    - name: Install dependencies
+      run: yarn --check-files --frozen-lockfile --non-interactive
+
     # Runs a single command using the runners shell
     - name: Lint
-      run: npm run lint
+      run: yarn lint
 
     # Runs a set of commands using the runners shell
     - name: Unit tests
-      run: npm run test:unit
+      run: yarn test:unit
+
+    - name: codecov
+      uses: codecov/codecov-action@v1
+      with:
+        flags: unittests
