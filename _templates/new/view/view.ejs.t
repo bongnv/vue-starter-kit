@@ -2,8 +2,8 @@
 to: "src/views/<%= h.changeCase.pascalCase(name) %>.vue"
 ---
 <%
-  const fileName = h.changeCase.kebab(name)
-  const importName = h.changeCase.pascal(fileName)
+  const fileName = h.changeCase.pascalCase(name)
+  const importName = h.changeCase.pascalCase(fileName)
   const titleName = h.changeCase.title(name)
 %>
 
@@ -14,11 +14,11 @@ to: "src/views/<%= h.changeCase.pascalCase(name) %>.vue"
 </template>
 
 <script>
-import MainLayout from '@/layouts/MainLayout.vue'
+import MainLayout from "@/layouts/MainLayout.vue";
 
 export default {
   page: {
-    title: '<%= titleName %>',
+    title: "<%= titleName %>",
     meta: [{ name: 'description', content: 'The <%= titleName %> page.' }],
   },
   components: { MainLayout }
@@ -28,6 +28,6 @@ export default {
 <%
 
 if (useStyles) { %>
-<style lang="scss" module>
+<style module>
 </style>
 <% } %>

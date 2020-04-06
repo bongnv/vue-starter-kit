@@ -16,7 +16,7 @@ if (blocks.indexOf('script') !== -1) {
 export default {
   <% if (blocks.indexOf('template') === -1) {
   %>render(h) {
-    return <div/>
+    return <div/>;
   }<% } %>
 }
 </script>
@@ -25,7 +25,7 @@ export default {
 
 if (blocks.indexOf('style') !== -1) {
 %>
-<style lang="scss" module>
+<style module>
 </style><%
 }
 %>
