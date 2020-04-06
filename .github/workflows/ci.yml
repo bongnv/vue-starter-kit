@@ -23,13 +23,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Setup node
-      uses: actions/setup-node@v1
+    - uses: actions/cache@v1
       with:
-        node-version: ${{ matrix.node }}
+        path: node_modules
+        key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
 
     - name: Install dependencies
       run: yarn --check-files --frozen-lockfile --non-interactive
@@ -42,7 +46,7 @@ jobs:
     - name: Unit tests
       run: yarn test:unit
 
-    - name: codecov
-      uses: codecov/codecov-action@v1
+    - uses: codecov/codecov-action@v1
       with:
+        token: ${{ secrets.CODECOV_TOKEN }}
         flags: unittests
